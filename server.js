@@ -15,5 +15,14 @@ app.get('*', function(request, response, next) {
 });
 
 
-app.listen(5000, 'localhost');
-console.log("list App :  Server is Listening on port 5000");
+// app.listen(5000, 'localhost');
+// console.log("list App :  Server is Listening on port 5000");
+
+
+// Start server.
+var server = app.listen(80, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+
+    console.log('AWS SQS example app listening at http://%s:%s', host, port);
+});
