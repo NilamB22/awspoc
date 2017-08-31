@@ -1,4 +1,4 @@
-app.service('httpService', function ($http) {
+app.service('httpService', function ($http,showPopup) {
     this.fetchHttp = function (method, url, param, headers) {
         return $http({
             method: method,
@@ -11,7 +11,8 @@ app.service('httpService', function ($http) {
         }).then(function (response) {
             return response;
         }, function errorCallback(response) {
-            alert("Oops!! some error occured while http fetch call");
+          //  alert("Oops!! some error occured while http fetch call");
+            showPopup.showAlert(this, "Oops! Something went wrong.");
             return response;
         });
 
