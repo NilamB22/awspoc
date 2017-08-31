@@ -1,9 +1,5 @@
-<div class="tbl_center" ng-show="isLoading">
-    <!-- MDL Container using class mdl-spinner -->
-    <div class="mdl-spinner mdl-js-spinner is-active">
-
-    </div>
-
+<div layout="row" layout-sm="column" layout-align="space-around" ng-show="isLoading" class="tbl_center" id="viewLoader">
+    <md-progress-circular md-mode="indeterminate" md-diameter="96"></md-progress-circular>
 </div>
 <div class="tbl_center" ng-show="!isLoading && !showtable ">
     <span><h3>Sorry No Data Found!!</h3></span>

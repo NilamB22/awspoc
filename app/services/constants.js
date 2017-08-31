@@ -1,3 +1,3 @@
-app.constant('IP', 'http://10.30.8.145:9090/');
-app.constant('Bucket', 'ctdemobucket');
+app.constant('IP', 'http://13.59.56.201:8080/');
+app.constant('Bucket','kd-dicom-samples');
 

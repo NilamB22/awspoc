@@ -1,6 +1,13 @@
 app.controller('UploadCtrl', function ($scope, httpService, IP, Upload, showPopup,Bucket) {
 
     $scope.uploadFile = function (ev) {
+
+        if(angular.isUndefined($scope.myFile))
+        {
+            showPopup.showAlert(ev, "Please Select File To be Upload");
+            return false;
+        }
+
         $scope.loader = true;
         $scope.url = IP+"filemanagement/upload/"+Bucket;
 
