@@ -1,7 +1,16 @@
-app.controller('UploadCtrl', function ($scope, httpService, IP, Upload, showPopup,Bucket) {
+define([
+	'angular',
+    '../../app',
+    '../../directives/dir',
+    '../../services/service',
+    '../../services/constants'],
+ function(angular,app) {
+    'use strict';
+
+app.controller('UploadCtrl',['$scope','Upload','httpService','showPopup','configConst',function ($scope, Upload,httpService,showPopup,configConst) {
 
     $scope.uploadFile = function (ev) {
-
+console.log($scope.myFile);
         if(angular.isUndefined($scope.myFile))
         {
             showPopup.showAlert(ev, "Please Select File To be Upload");
@@ -9,7 +18,7 @@ app.controller('UploadCtrl', function ($scope, httpService, IP, Upload, showPopu
         }
 
         $scope.loader = true;
-        $scope.url = IP+"filemanagement/upload/"+Bucket;
+        $scope.url = configConst.IP+"filemanagement/upload/"+configConst.Bucket;
 
         Upload.upload({
             url: $scope.url,
@@ -33,6 +42,6 @@ app.controller('UploadCtrl', function ($scope, httpService, IP, Upload, showPopu
 
 
     };
-
+}]);
 
 });

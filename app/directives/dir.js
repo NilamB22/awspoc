@@ -1,3 +1,5 @@
+define(['angular','../app'],
+ function(angular,app) {
 app.directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
@@ -13,3 +15,4 @@ app.directive('fileModel', ['$parse', function ($parse) {
         }
     };
 }]);
+});

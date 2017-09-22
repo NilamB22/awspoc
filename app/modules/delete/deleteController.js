@@ -1,9 +1,14 @@
-app.controller('DeleteCtrl', function ($scope, httpService, IP, $mdDialog, showPopup) {
+define([
+	'angular',
+	'../../app','../../services/service','../../services/constants'],
+ function(angular,app) {
+    'use strict';
 
-
+app.controller('DeleteCtrl',['$scope','httpService','configConst','$mdDialog','showPopup', function ($scope, httpService, configConst, $mdDialog, showPopup) {
+    console.log(configConst);
     $scope.isLoading = true;
     $scope.delloader = -1;
-    $scope.url = IP + 'filemanagement/all';
+    $scope.url = configConst.IP + 'filemanagement/all';
     httpService.fetchHttp('GET', $scope.url, '', '').then(
         function (response) {
             $scope.isLoading = false;
@@ -36,7 +41,7 @@ app.controller('DeleteCtrl', function ($scope, httpService, IP, $mdDialog, showP
 
             var arr = [filename];
             $scope.delloader = index;
-            $scope.url = IP + 'filemanagement/delete';
+            $scope.url = configConst.IP + 'filemanagement/delete';
             httpService.fetchHttp('DELETE', $scope.url, arr, 'application/json').then(
                 function (response) {
                     $scope.delloader = -1;
@@ -57,4 +62,5 @@ app.controller('DeleteCtrl', function ($scope, httpService, IP, $mdDialog, showP
     }
 
 
+}]);
 });

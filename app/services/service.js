@@ -1,3 +1,8 @@
+define([
+	'angular',
+	'../app'],
+ function(angular,app) {
+
 app.service('httpService', function ($http,showPopup) {
     this.fetchHttp = function (method, url, param, headers) {
         return $http({
@@ -17,6 +22,7 @@ app.service('httpService', function ($http,showPopup) {
         });
 
     }
+     //
 });
 
 app.service('showPopup', function ($mdDialog) {
@@ -33,4 +39,6 @@ app.service('showPopup', function ($mdDialog) {
                 .targetEvent(ev)
         );
     };
+});
+ return app;
 });
